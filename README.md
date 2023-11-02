@@ -6,4 +6,4 @@ O código consiste em um simulador simplificado de uma partida de CS, onde há u
 
 Para explicação das lógicas usadas, confira o vídeo explicando o código através do link:
 
-link do yotube aqui
+https://youtu.be/s-1NIA9Gigk
