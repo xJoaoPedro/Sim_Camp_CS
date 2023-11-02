@@ -38,9 +38,13 @@ class Campeonato
         {
             Console.WriteLine($"\nCom {equipe1.PontosTotal()} pontos, a equipe {equipe1.nomeEquipe} venceu o campenato {nomeCampeonato}!");
         }
-        else
+        else if (equipe2.PontosTotal() > equipe1.PontosTotal())
         {
             Console.WriteLine($"\nCom {equipe2.PontosTotal()} pontos, a equipe {equipe2.nomeEquipe} venceu o campenato {nomeCampeonato}!");
+        }
+        else
+        {
+            Console.WriteLine($"\nCom {equipe1.PontosTotal()} pontos, as equipes {equipe1.nomeEquipe} e {equipe2.nomeEquipe} empataram o campenato {nomeCampeonato}!");
         }
         Console.ReadKey();
         Console.Clear();

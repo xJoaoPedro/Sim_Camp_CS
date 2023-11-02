@@ -5,51 +5,60 @@ class Menu
     public int numEquipes = 0;
     public void ImprimeMenu()
     {
-        Console.Clear();
-        Console.Write("+");
-        for (int i = 0; i <= 34; i++)
+        try
         {
-            Console.Write("-");
-            if (i == 11)
+            Console.Clear();
+            Console.Write("+");
+            for (int i = 0; i <= 34; i++)
             {
-                Console.Write("Bem-vindo !");
-                i = 23;
+                Console.Write("-");
+                if (i == 11)
+                {
+                    Console.Write("Bem-vindo !");
+                    i = 23;
+                }
             }
-        }
-        Console.Write("+\n");
-        for (int lines = 0; lines <= 9; lines++)
-        {
-            Console.Write("|");
+            Console.Write("+\n");
+            for (int lines = 0; lines <= 9; lines++)
+            {
+                Console.Write("|");
+                for (int i = 0; i <= 33; i++)
+                {
+                    Console.Write(" ");
+                }
+                Console.Write("|\n");
+            }
+            Console.Write("+");
             for (int i = 0; i <= 33; i++)
             {
-                Console.Write(" ");
+                Console.Write("-");
             }
-            Console.Write("|\n");
-        }
-        Console.Write("+");
-        for (int i = 0; i <= 33; i++)
-        {
-            Console.Write("-");
-        }
-        Console.Write("+");
+            Console.Write("+");
 
-        Console.SetCursorPosition(2, 2);
-        Console.WriteLine("Simule o seu campeonato de CS!"); // mais uma partida do q campeonato
-        Console.SetCursorPosition(2, 4);
-        Console.WriteLine("1 - Adicione um jogador");
-        Console.SetCursorPosition(2, 5);
-        Console.WriteLine("2 - Adicione uma equipe");
-        Console.SetCursorPosition(2, 6);
-        Console.WriteLine("3 - Atribuir jogador a uma equipe");
-        Console.SetCursorPosition(2, 7);
-        Console.WriteLine("4 - Iniciar campeonato");
-        Console.SetCursorPosition(2, 8);
-        Console.WriteLine("5 - Sair");
-        Console.SetCursorPosition(2, 10);
-        Console.Write("Opção desejada: ");
+            Console.SetCursorPosition(2, 2);
+            Console.WriteLine("Simule o seu campeonato de CS!"); // mais uma partida do q campeonato
+            Console.SetCursorPosition(2, 4);
+            Console.WriteLine("1 - Adicione um jogador");
+            Console.SetCursorPosition(2, 5);
+            Console.WriteLine("2 - Adicione uma equipe");
+            Console.SetCursorPosition(2, 6);
+            Console.WriteLine("3 - Atribuir jogador a uma equipe");
+            Console.SetCursorPosition(2, 7);
+            Console.WriteLine("4 - Iniciar campeonato");
+            Console.SetCursorPosition(2, 8);
+            Console.WriteLine("5 - Sair");
+            Console.SetCursorPosition(2, 10);
+            Console.Write("Opção desejada: ");
+        }
+        catch (System.ArgumentOutOfRangeException)
+        {
+            Console.Clear();
+            Console.WriteLine("Por favor, aumente o console e pressione enter para poder continuar com a aplicação.");
+        }
+
     }
 
-    public void lerResposta(Jogador[] todosJogadores, Campeonato camp1)
+    public void lerResposta(Jogador[] todosJogadores, Campeonato camp1, Menu m1)
     {
         try
         {
@@ -58,8 +67,7 @@ class Menu
         catch (System.FormatException)
         {
             Console.Clear();
-            Console.WriteLine("Erro. favor usar somente os números de 1 a 5 na navegação do menu.");
-            Console.ReadKey();
+            opcao = 0;
         }
 
         switch (opcao)
@@ -144,7 +152,17 @@ class Menu
                         }
                     }
                     Console.Write("Opção: ");
-                    posicao = Convert.ToInt32(Console.ReadLine());
+                    try
+                    {
+                        posicao = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch (System.FormatException)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Erro. favor usar somente números na navegação do menu.");
+                        Console.ReadKey();
+                        opcao = 0;
+                    }
                     while (posicao < 1 || posicao > 10)
                     {
                         Console.Write("Jogador indisponível, escolha entre 1-10: ");

@@ -1,4 +1,4 @@
-﻿    Menu m1 = new Menu();
+﻿Menu m1 = new Menu();
 Jogador[] todosJogadores = new Jogador[10];
 Campeonato camp1 = new Campeonato();
 
@@ -8,5 +8,5 @@ camp1.nomeCampeonato = Console.ReadLine();
 do
 {
     m1.ImprimeMenu();
-    m1.lerResposta(todosJogadores, camp1);
+    m1.lerResposta(todosJogadores, camp1, m1);
 } while (true);
